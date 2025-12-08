@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VidaPlus - Relatórios Gerenciais</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">VidaPlus <span class="badge bg-secondary">Admin</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="usuarios.html">Usuários</a></li>
+                    <li class="nav-item"><a class="nav-link" href="leitos.html">Gestão de Leitos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="suprimentos.html">Suprimentos</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="relatorios.html">Relatórios</a></li>
+                </ul>
+                <div class="d-flex align-items-center text-white">
+                    <div class="dropdown">
+                        <a class="text-white text-decoration-none dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-shield-lock me-1"></i> <span id="nomeUsuario">Administrador</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#">Configurações</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" onclick="logout()">Sair</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h2 class="mb-4">Central de Relatórios</h2>
+
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="bi bi-file-earmark-bar-graph text-primary"></i> Atendimentos</h5>
+                        <p class="card-text">Relatórios detalhados sobre consultas, exames e procedimentos realizados.</p>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-outline-primary text-start"><i class="bi bi-download me-2"></i> Consultas por Especialidade</button>
+                            <button class="btn btn-outline-primary text-start"><i class="bi bi-download me-2"></i> Tempo Médio de Espera</button>
+                            <button class="btn btn-outline-primary text-start"><i class="bi bi-download me-2"></i> Taxa de Cancelamento</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="bi bi-cash-coin text-success"></i> Financeiro</h5>
+                        <p class="card-text">Balanço financeiro, faturamento por convênio e custos operacionais.</p>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-outline-success text-start"><i class="bi bi-download me-2"></i> Faturamento Mensal</button>
+                            <button class="btn btn-outline-success text-start"><i class="bi bi-download me-2"></i> Glosas de Convênios</button>
+                            <button class="btn btn-outline-success text-start"><i class="bi bi-download me-2"></i> Custos por Setor</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="bi bi-box-seam text-warning"></i> Estoque e Farmácia</h5>
+                        <p class="card-text">Controle de medicamentos, materiais e equipamentos.</p>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-outline-warning text-start"><i class="bi bi-download me-2"></i> Consumo Médio Mensal</button>
+                            <button class="btn btn-outline-warning text-start"><i class="bi bi-download me-2"></i> Itens Próximos ao Vencimento</button>
+                            <button class="btn btn-outline-warning text-start"><i class="bi bi-download me-2"></i> Inventário Geral</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card shadow-sm">
+            <div class="card-header bg-white">
+                <h5 class="mb-0">Gerador de Relatórios Personalizados</h5>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <label class="form-label">Tipo de Dados</label>
+                            <select class="form-select">
+                                <option selected>Selecione...</option>
+                                <option value="1">Pacientes</option>
+                                <option value="2">Profissionais</option>
+                                <option value="3">Consultas</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Data Inicial</label>
+                            <input type="date" class="form-control">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Data Final</label>
+                            <input type="date" class="form-control">
+                        </div>
+                        <div class="col-md-2 d-flex align-items-end">
+                            <button type="submit" class="btn btn-dark w-100">Gerar PDF</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const usuario = JSON.parse(localStorage.getItem('usuarioLogado'));
+            if (usuario) {
+                document.getElementById('nomeUsuario').textContent = usuario.nome;
+            }
+        });
+    </script>
+</body>
+</html>

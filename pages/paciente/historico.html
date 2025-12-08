@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VidaPlus - Histórico</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">VidaPlus <span class="badge bg-light text-primary">Paciente</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="dashboard.html">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="agendamento.html">Agendar Consulta</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="historico.html">Histórico</a></li>
+                    <li class="nav-item"><a class="nav-link" href="teleconsulta.html">Teleconsulta</a></li>
+                </ul>
+                <div class="d-flex align-items-center text-white">
+                    <div class="dropdown">
+                        <a class="text-white text-decoration-none dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-person-circle me-1"></i> <span id="nomeUsuario">Paciente</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="notificacoes.html">Notificações</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" onclick="logout()">Sair</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h2 class="mb-4">Histórico Médico</h2>
+
+        <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="consultas-tab" data-bs-toggle="tab" data-bs-target="#consultas" type="button" role="tab">Consultas</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="exames-tab" data-bs-toggle="tab" data-bs-target="#exames" type="button" role="tab">Exames</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="receitas-tab" data-bs-toggle="tab" data-bs-target="#receitas" type="button" role="tab">Receitas</button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="myTabContent">
+            <!-- Aba Consultas -->
+            <div class="tab-pane fade show active" id="consultas" role="tabpanel">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Data</th>
+                                        <th>Médico</th>
+                                        <th>Especialidade</th>
+                                        <th>Diagnóstico</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>15/09/2026</td>
+                                        <td>Dra. Santos</td>
+                                        <td>Dermatologia</td>
+                                        <td>Dermatite de contato</td>
+                                        <td><button class="btn btn-sm btn-outline-primary">Ver Detalhes</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>20/08/2026</td>
+                                        <td>Dr. Oliveira</td>
+                                        <td>Clínico Geral</td>
+                                        <td>Check-up anual</td>
+                                        <td><button class="btn btn-sm btn-outline-primary">Ver Detalhes</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aba Exames -->
+            <div class="tab-pane fade" id="exames" role="tabpanel">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="mb-1">Hemograma Completo</h6>
+                                    <small class="text-muted">Realizado em 10/10/2026 - Laboratório Central</small>
+                                </div>
+                                <span class="badge bg-success rounded-pill">Disponível</span>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="mb-1">Raio-X Tórax</h6>
+                                    <small class="text-muted">Realizado em 20/08/2026 - Radiologia</small>
+                                </div>
+                                <span class="badge bg-success rounded-pill">Disponível</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aba Receitas -->
+            <div class="tab-pane fade" id="receitas" role="tabpanel">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Receita #12345</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Dr. Silva - 15/09/2026</h6>
+                                <p class="card-text">
+                                    - Amoxicilina 500mg (1 cx)<br>
+                                    - Ibuprofeno 600mg (1 cx)
+                                </p>
+                                <a href="#" class="card-link">Baixar PDF</a>
+                                <a href="#" class="card-link">Imprimir</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const usuario = JSON.parse(localStorage.getItem('usuarioLogado'));
+            if (usuario) {
+                document.getElementById('nomeUsuario').textContent = usuario.nome;
+            }
+        });
+    </script>
+</body>
+</html>

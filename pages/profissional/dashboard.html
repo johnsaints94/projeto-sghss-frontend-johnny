@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VidaPlus - Área do Profissional</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">VidaPlus <span class="badge bg-light text-success">Profissional</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link active" href="dashboard.html">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="agenda.html">Minha Agenda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="prontuario.html">Prontuários</a></li>
+                    <li class="nav-item"><a class="nav-link" href="prescricao.html">Prescrições</a></li>
+                    <li class="nav-item"><a class="nav-link" href="teleconsulta.html">Teleconsulta</a></li>
+                </ul>
+                <div class="d-flex align-items-center text-white">
+                    <div class="dropdown">
+                        <a class="text-white text-decoration-none dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-person-badge me-1"></i> <span id="nomeUsuario">Dr. Médico</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#">Meu Perfil</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" onclick="logout()">Sair</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <h2>Painel de Controle</h2>
+                <p class="text-muted">Resumo das atividades do dia.</p>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="card text-white bg-primary mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Consultas Hoje</h5>
+                        <p class="card-text display-4">12</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-white bg-warning mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Pendentes</h5>
+                        <p class="card-text display-4">4</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-white bg-success mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Atendidos</h5>
+                        <p class="card-text display-4">8</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-white bg-info mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Teleconsultas</h5>
+                        <p class="card-text display-4">3</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">Próximos Pacientes</h5>
+                        <a href="agenda.html" class="btn btn-sm btn-outline-primary">Ver Agenda Completa</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle">
+                                <thead>
+                                    <tr>
+                                        <th>Horário</th>
+                                        <th>Paciente</th>
+                                        <th>Tipo</th>
+                                        <th>Status</th>
+                                        <th>Ação</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>14:30</td>
+                                        <td>João da Silva</td>
+                                        <td><span class="badge bg-info">Teleconsulta</span></td>
+                                        <td><span class="badge bg-warning text-dark">Aguardando</span></td>
+                                        <td><a href="teleconsulta.html" class="btn btn-sm btn-primary">Iniciar</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>15:00</td>
+                                        <td>Maria Oliveira</td>
+                                        <td><span class="badge bg-secondary">Presencial</span></td>
+                                        <td><span class="badge bg-secondary">Agendado</span></td>
+                                        <td><button class="btn btn-sm btn-outline-secondary">Chamar</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>15:30</td>
+                                        <td>Pedro Santos</td>
+                                        <td><span class="badge bg-secondary">Presencial</span></td>
+                                        <td><span class="badge bg-secondary">Agendado</span></td>
+                                        <td><button class="btn btn-sm btn-outline-secondary">Chamar</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm mb-3">
+                    <div class="card-header bg-white">
+                        <h5 class="mb-0">Avisos do Sistema</h5>
+                    </div>
+                    <div class="list-group list-group-flush">
+                        <div class="list-group-item">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h6 class="mb-1">Manutenção Programada</h6>
+                                <small>Hoje</small>
+                            </div>
+                            <p class="mb-1 small">O sistema passará por manutenção às 22h.</p>
+                        </div>
+                        <div class="list-group-item">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h6 class="mb-1">Reunião Clínica</h6>
+                                <small>Amanhã</small>
+                            </div>
+                            <p class="mb-1 small">Reunião mensal de equipe às 08h.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const usuario = JSON.parse(localStorage.getItem('usuarioLogado'));
+            if (usuario) {
+                document.getElementById('nomeUsuario').textContent = usuario.nome;
+            }
+        });
+    </script>
+</body>
+</html>
